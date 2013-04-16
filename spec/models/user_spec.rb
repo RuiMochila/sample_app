@@ -31,6 +31,7 @@ describe User do
 
 	it { should be_valid }
 
+	#Name Validations
 	describe "when name is not present" do
 		before { @user.name = " " }
 		it { should_not be_valid }
@@ -40,7 +41,10 @@ describe User do
 		before { @user.name = "a" * 51 }
 		it { should_not be_valid }
 	end
+	#######
 
+
+	#Email Validations
 	describe "when email format is invalid" do
 		it "should be invalid" do
 			addresses = %w[user@foo,com user_at_foo.org example.user@foo.
@@ -72,6 +76,18 @@ describe User do
 		it { should_not be_valid }
 	end
 
+	describe "email address with mixed case" do
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+
+    it "should be saved as all lower-case" do
+      @user.email = mixed_case_email
+      @user.save
+      @user.reload.email.should == mixed_case_email.downcase
+    end
+  end
+  #######
+
+  #Password Validations
 	describe "when password is not present" do
 		before { @user.password = @user.password_confirmation = " " }
 		it { should_not be_valid }
@@ -107,5 +123,6 @@ describe User do
   		it { should be_invalid }
 		end
 	end
+	#######
 
 end
