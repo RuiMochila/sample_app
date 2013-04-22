@@ -3,6 +3,8 @@
 
 <div class="row">
   <div class="span6 offset3">
+
+    <!-- before refactoring with a partial 
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -20,8 +22,20 @@
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
+    -->
+
+    <!-- now I render the field of the form, passing the f variable to be used inside the partial. the submit part changes from edit --> 
+
+    <%= form_for(@user) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+    
+
 
     <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
+    <%= link_to "change", "http://gravatar.com/emails", :target => '_blank' %>
+    
+    <!-- <a href="http://gravatar.com/emails" >change</a> -->
   </div>
 </div>
