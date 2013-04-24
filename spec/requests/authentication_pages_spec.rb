@@ -63,6 +63,8 @@ describe "Authentication" do
 
   end
 
+
+
   describe "authorization" do
 
     describe "for non-signed-in users" do
@@ -115,7 +117,18 @@ describe "Authentication" do
           it { should have_selector('title', text: 'Sign in') }
         end
 
+        describe "visiting the following page" do
+          before { visit following_user_path(user) }
+          it { should have_selector('title', text: 'Sign in') }
+        end
+
+        describe "visiting the followers page" do
+          before { visit followers_user_path(user) }
+          it { should have_selector('title', text: 'Sign in') }
+        end
       end
+
+      #end
 
       describe "in the Microposts controller" do
 
@@ -129,7 +142,7 @@ describe "Authentication" do
           specify { response.should redirect_to(signin_path) }
         end
       end
-      
+    
     end
 
     describe "as wrong user" do
@@ -161,5 +174,7 @@ describe "Authentication" do
     end
     
   end
+
+
 
 end
