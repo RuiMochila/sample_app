@@ -11,9 +11,9 @@ gem 'jquery-rails', '2.0.2'
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
-  gem 'guard-rspec', '1.2.1' #sys dependent
-  gem 'guard-spork', '1.2.0' #sys dependent
-  gem 'spork', '0.9.2' #sys dependent
+  #gem 'guard-rspec', '1.2.1' #sys dependent
+  #gem 'guard-spork', '1.2.0' #sys dependent
+  #gem 'spork', '0.9.2' #sys dependent
 end
 
 group :development do
@@ -34,10 +34,10 @@ group :test do
   gem 'cucumber-rails', '1.2.1', :require => false
   gem 'database_cleaner', '0.7.0'
 
-  gem 'rb-fchange', '0.0.5'
-  gem 'rb-notifu', '0.0.4'
-  gem 'win32console', '1.3.0'
-  gem 'wdm', '~>0.0.3'
+  #gem 'rb-fchange', '0.0.5' #tirei pa linux
+  #gem 'rb-notifu', '0.0.4' #tirei pa linux
+  #gem 'win32console', '1.3.0' #tirei pa linux
+  #gem 'wdm', '~>0.0.3' #tirei pa linux
   
   #Não sei o k são, mas é system dependent. Experimentar
   # gem 'launchy', '2.1.0'
